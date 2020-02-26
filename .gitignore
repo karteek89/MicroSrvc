@@ -1,2 +1,6 @@
 .vs
-src/logs/*
+.dockerignore
+LRMS/bin
+LRMS/obj
+LRMS/docker
+
