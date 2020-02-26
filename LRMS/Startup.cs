@@ -1,11 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using LRMS.Extensions;
 using LRMS.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace LRMS
 {
@@ -23,24 +29,28 @@ namespace LRMS
         {
             services.AddCors();
 
-            // Configure all dependencies
             services.ConfigureAllDependencies();
 
             // configure strongly typed settings objects
             var appSetting = Configuration.GetSection("AppSettings");
             services.Configure<Setting>(appSetting);
-            services.AddControllers();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
-            app.ConfigureExceptionHandler();
+            //app.ConfigureExceptionHandler();
 
             app.UseHttpsRedirection();
 
@@ -50,13 +60,8 @@ namespace LRMS
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseHttpsRedirection();
+            app.UseMvc();
         }
     }
 }

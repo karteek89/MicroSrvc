@@ -9,12 +9,10 @@ namespace LRMS.Controllers
     [Route("api/logs")]
     public class LogController : BaseController
     {
-        private readonly ILogger<LogController> _logger;
         private readonly ILogService _logService;
 
-        public LogController(ILogger<LogController> logger, ILogService logService)
+        public LogController(ILogService logService)
         {
-            _logger = logger;
             _logService = logService;
         }
 

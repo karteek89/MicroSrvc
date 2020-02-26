@@ -1,0 +1,16 @@
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\bin\Debug\netcoreapp2.1\LRMS.deps.json
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\bin\Debug\netcoreapp2.1\LRMS.runtimeconfig.json
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\bin\Debug\netcoreapp2.1\LRMS.runtimeconfig.dev.json
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\bin\Debug\netcoreapp2.1\LRMS.dll
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\bin\Debug\netcoreapp2.1\LRMS.pdb
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\obj\Debug\netcoreapp2.1\LRMS.csprojAssemblyReference.cache
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\obj\Debug\netcoreapp2.1\LRMS.RazorAssemblyInfo.cache
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\obj\Debug\netcoreapp2.1\LRMS.RazorAssemblyInfo.cs
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\obj\Debug\netcoreapp2.1\LRMS.AssemblyInfoInputs.cache
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\obj\Debug\netcoreapp2.1\LRMS.AssemblyInfo.cs
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\obj\Debug\netcoreapp2.1\LRMS.RazorTargetAssemblyInfo.cache
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\obj\Debug\netcoreapp2.1\LRMS.dll
+C:\Users\tarunkhatana\source\repos\WebApplication1\LRMS\obj\Debug\netcoreapp2.1\LRMS.pdb
