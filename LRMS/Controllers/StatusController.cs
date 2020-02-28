@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using LRMS.Contracts;
+using LRMS.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LRMS.Controllers
@@ -15,20 +18,36 @@ namespace LRMS.Controllers
             _statusService = statusService;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("getSftpStatus")]
-        public async Task<IActionResult> GetSftpStatus()
+        public async Task<IActionResult> GetSftpStatus(SftpRequestModel model)
         {
-            var result = await _statusService.GetSftpStatus();
-            return Ok(result);
+            try
+            {
+                var result = await _statusService.GetSftpStatus(model);
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+           
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("getAdaptorStatus")]
-        public async Task<IActionResult> GetAdaptorStatus()
+        public async Task<IActionResult> GetAdaptorStatus(AdaptorStatusRequestModel model)
         {
-            var result = await _statusService.GetAdaptorStatus();
-            return Ok(result);
+            try
+            {
+                var result = await _statusService.GetAdaptorStatus(model.List);
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
     }
+   
 }

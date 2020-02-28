@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using LRMS.Contracts;
+using LRMS.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace LRMS.Controllers
 {
@@ -18,17 +18,17 @@ namespace LRMS.Controllers
 
         [HttpGet]
         [Route("getAll")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(LoggerRequestModel model)
         {
-            var logs = await _logService.GetDateWiseLogs(10);
+            var logs = await _logService.GetDateWiseLogs(10, model.FilePath, model.FileExtn);
             return Ok(logs);
         }
 
         [HttpGet]
         [Route("getLogsBy")]
-        public async Task<IActionResult> getLogsBy(string logDate, string logLevel, int page, int limit)
+        public async Task<IActionResult> getLogsBy(LoggerRequestModel model, string logDate, string logLevel, int page, int limit)
         {
-            var logs = await _logService.GetLogsBy(logDate, logLevel, limit, page);
+            var logs = await _logService.GetLogsBy(logDate, model.FilePath, model.FileExtn, logLevel, limit, page);
             return Ok(logs);
         }
     }

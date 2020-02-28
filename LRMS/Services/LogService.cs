@@ -6,23 +6,19 @@ using System.Threading.Tasks;
 using LRMS.Contracts;
 using LRMS.Extensions;
 using LRMS.Models;
-using Microsoft.Extensions.Options;
 
 namespace LRMS.Services
 {
     public class LogService : ILogService
     {
-        private readonly LoggerSettings _loggerSettings;
-
-        public LogService(IOptions<Setting> settings)
+        public LogService()
         {
-            _loggerSettings = settings?.Value.LoggerSetting;
         }
 
-        public async Task<IList<DateWiseLogViewModel>> GetDateWiseLogs(int daysCount)
+        public async Task<IList<DateWiseLogViewModel>> GetDateWiseLogs(int daysCount, string filePath, string fileExtn)
         {
-            DirectoryInfo directoryInfo = new DirectoryInfo(_loggerSettings.FilePath);
-            IList<FileInfo> files = directoryInfo.GetFiles($"*.{_loggerSettings.FileExtn}")
+            DirectoryInfo directoryInfo = new DirectoryInfo(filePath);
+            IList<FileInfo> files = directoryInfo.GetFiles($"*.{fileExtn}")
                                             .OrderByDescending(p => p.CreationTime)
                                             .ToList();
 
@@ -33,10 +29,10 @@ namespace LRMS.Services
             return list;
         }
 
-        public async Task<IList<LogInfo>> GetLogsBy(string logDate, string logLevel, int limit, int page)
+        public async Task<IList<LogInfo>> GetLogsBy(string logDate, string filePath, string fileExtn, string logLevel, int limit, int page)
         {
-            DirectoryInfo directoryInfo = new DirectoryInfo(_loggerSettings.FilePath);
-            var file = directoryInfo.GetFiles($"{logDate}.{_loggerSettings.FileExtn}")
+            DirectoryInfo directoryInfo = new DirectoryInfo(filePath);
+            var file = directoryInfo.GetFiles($"{logDate}.{fileExtn}")
                                     .FirstOrDefault();
 
             if (file == null) return null;

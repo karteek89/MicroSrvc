@@ -6,7 +6,7 @@ namespace LRMS.Contracts
 {
     public interface IStatusService
     {
-        Task<bool> GetSftpStatus();
-        Task<IList<AdaptorStatus>> GetAdaptorStatus();
+        Task<bool> GetSftpStatus(SftpRequestModel model);
+        Task<IList<Adaptor>> GetAdaptorStatus(IList<Adaptor> list);
     }
 }

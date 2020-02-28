@@ -11885,11 +11885,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tarunkhatana\\source\\repos\\WebApplication1\\LRMS\\LRMS.csproj",
+      "projectUniqueName": "D:\\Work\\krtk\\2020-02\\LRMS\\LRMS\\LRMS.csproj",
       "projectName": "LRMS",
-      "projectPath": "C:\\Users\\tarunkhatana\\source\\repos\\WebApplication1\\LRMS\\LRMS.csproj",
+      "projectPath": "D:\\Work\\krtk\\2020-02\\LRMS\\LRMS\\LRMS.csproj",
       "packagesPath": "C:\\Users\\tarunkhatana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tarunkhatana\\source\\repos\\WebApplication1\\LRMS\\obj\\",
+      "outputPath": "D:\\Work\\krtk\\2020-02\\LRMS\\LRMS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tarunkhatana\\AppData\\Roaming\\NuGet\\NuGet.Config",

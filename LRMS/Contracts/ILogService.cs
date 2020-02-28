@@ -6,7 +6,7 @@ namespace LRMS.Contracts
 {
     public interface ILogService
     {
-        Task<IList<DateWiseLogViewModel>> GetDateWiseLogs(int daysCount);
-        Task<IList<LogInfo>> GetLogsBy(string logDate, string logLevel, int limit, int page);
+        Task<IList<DateWiseLogViewModel>> GetDateWiseLogs(int daysCount, string filePath, string fileExtn);
+        Task<IList<LogInfo>> GetLogsBy(string logDate, string filePath, string fileExtn, string logLevel, int limit, int page);
     }
 }

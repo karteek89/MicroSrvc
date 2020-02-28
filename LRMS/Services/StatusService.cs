@@ -1,34 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using LRMS.Contracts;
 using LRMS.Models;
-using Microsoft.Extensions.Options;
 
 namespace LRMS.Services
 {
     public class StatusService : IStatusService
     {
-        private readonly Setting _settings;
-
-        public StatusService(IOptions<Setting> settings)
+        public StatusService()
         {
-            _settings = settings.Value;
         }
 
-        public async Task<IList<AdaptorStatus>> GetAdaptorStatus()
+        public async Task<IList<Adaptor>> GetAdaptorStatus(IList<Adaptor> list)
         {
-            foreach (var adaptor in _settings.AdaptorList)
+            foreach (var adaptor in list)
                 adaptor.IsRunning = IsProcessRunning(adaptor.ProcessName);
 
-            return await Task.Run(() => { return _settings.AdaptorList; });
+            return await Task.Run(() => { return list; });
         }
 
-        public async Task<bool> GetSftpStatus()
+        public async Task<bool> GetSftpStatus(SftpRequestModel model)
         {
-            return await CheckSftpStatus();
+            return await CheckSftpStatus(model);
         }
 
 
@@ -43,18 +38,18 @@ namespace LRMS.Services
             return true;
         }
 
-        private Task<bool> CheckSftpStatus()
+        private Task<bool> CheckSftpStatus(SftpRequestModel sftp)
         {
             var isSftp = false;
 
-            using (FileStream fs = File.Open(_settings.Sftp.FilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fs = File.Open(sftp.FilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             using (BufferedStream bs = new BufferedStream(fs))
             using (StreamReader sr = new StreamReader(bs))
             {
                 string s;
                 while ((s = sr.ReadLine()) != null)
                 {
-                    if (s.Contains(_settings.Sftp.KeyWord))
+                    if (s.Contains(sftp.KeyWord))
                     {
                         isSftp = true;
                         break;

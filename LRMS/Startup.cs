@@ -31,10 +31,6 @@ namespace LRMS
 
             services.ConfigureAllDependencies();
 
-            // configure strongly typed settings objects
-            var appSetting = Configuration.GetSection("AppSettings");
-            services.Configure<Setting>(appSetting);
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
